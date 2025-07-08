@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: #292929;
+  width: 100%;
+}
+footer div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 500px;
+}
+footer div h1 {
+  font-size: 18px;
+  color: white;
+}
+footer div .redes-socias {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+footer div .redes-socias .social {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+}
+footer div .redes-socias .social > *{
+  height: 20px;
+}
+
+footer div .info .cursos div h2{
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: 8px;
+}
+footer div .info .cursos div h2 img{
+  height: 30px;
+  border-radius: 50%;
+  padding: 2px;
+  filter: invert();
+}
+footer div .info .cursos div h2 img:hover{
+  background-color: rgba(0, 0, 0, .2);
+  cursor: pointer;
+}
+
+footer div .info .cursos {
+  display: flex;
+  gap: 5px;
+}
+
+footer div .info .cursos a{
+  text-decoration: none;
+  color: white;
+}
