@@ -39,29 +39,75 @@ footer div .redes-socias .social > *{
   height: 20px;
 }
 
-footer div .info .cursos div h2{
+
+footer div .info .itens.ativo {
+  background: linear-gradient(to left, #282828, #404040, #7F7F7F, #404040, #282828);
+}
+
+footer div .info .itens div h2{
   display: flex;
+  font-size: 18px;
   align-items: center;
   color: white;
   gap: 8px;
+  border-radius: 20px;
+  /* padding-bottom: 20px; */
+  /* border-bottom: 2px solid rgba(255, 255, 255, .2); */
+  background: linear-gradient(to left, #282828, #404040, #7F7F7F, #404040, #282828);
+
 }
-footer div .info .cursos div h2 img{
+footer div .info .itens div h2 img{
   height: 30px;
   border-radius: 50%;
   padding: 2px;
   filter: invert();
 }
-footer div .info .cursos div h2 img:hover{
+footer div .info .itens div h2 img:hover{
   background-color: rgba(0, 0, 0, .2);
   cursor: pointer;
 }
 
-footer div .info .cursos {
+footer div .info .itens div:last-child{
   display: flex;
   gap: 5px;
 }
 
-footer div .info .cursos a{
+footer div .info .itens a{
   text-decoration: none;
   color: white;
+  font-size: 16px;
+  position: relative;
+  width: fit-content;
+
+}
+
+footer div .info .itens a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+footer div .info .itens a:hover::after {
+  transform: scaleX(1);
+}
+
+footer div .logos {
+  width: 100%;
+  display: flex;
+  align-items:center;
+}
+
+footer div .logos div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 600px;
+  /* align-self: center; */
 }
