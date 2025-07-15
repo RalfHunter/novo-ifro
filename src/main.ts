@@ -7,6 +7,10 @@ const app = document.querySelector<HTMLDivElement>('#app')!
 const itens = document.querySelectorAll('.itens')!
 const shos = document.querySelectorAll('.show-hiden-options')!
 const urlCompleta = window.location.protocol +'//' + window.location.host
+const menu = document.querySelector<HTMLImageElement>('.menu')!
+const ul = document.querySelector<HTMLDivElement>('ul')!
+const ifro = document.querySelector<HTMLDivElement>('.logo-ifro')!
+ul.classList.toggle('hide')
 for(let i:number = 0; i<itens.length; i++){
     const botao = shos[i] as HTMLImageElement;
     let opcoes = itens[i]?.children.length || 0
@@ -31,3 +35,14 @@ for(let i:number = 0; i<itens.length; i++){
     // console.log(urlCompleta)
     })    
 }
+menu?.addEventListener('click', ()=>{
+    // ul.style.display = ul.style.display === 'none' ? 'flex':'none'
+    menu.style.opacity = '0';
+    setTimeout(() =>{
+    menu.src = menu.src === urlCompleta + '/public/align-justify.svg' ? 
+    urlCompleta + '/public/x.svg' : urlCompleta + '/public/align-justify.svg'
+    menu.style.opacity = '1';
+    }, 150)
+    ul.classList.toggle('hide')
+    ifro.style.display = ifro.style.display === 'flex' ? 'none':'flex'
+})
