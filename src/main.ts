@@ -11,15 +11,16 @@ const menu = document.querySelector<HTMLImageElement>('.menu')!
 const ul = document.querySelector<HTMLDivElement>('ul')!
 const ifro = document.querySelector<HTMLDivElement>('.logo-ifro')!
 ul.classList.toggle('hide')
-for(let i:number = 0; i<itens.length; i++){
-    const botao = shos[i] as HTMLImageElement;
-    let opcoes = itens[i]?.children.length || 0
-    const filho = itens[i]?.children[opcoes-1] as HTMLDivElement;
-    filho.style.display = filho.style.display === 'none' ? 'flex':'none'
-    botao.src = botao.src === urlCompleta + '/public/circle-plus.svg' ?
-    urlCompleta + '/public/circle-minus.svg':
-    urlCompleta + '/public/circle-plus.svg';
-}
+// for(let i:number = 0; i<itens.length; i++){
+//     const botao = shos[i] as HTMLImageElement;
+//     let opcoes = itens[i]?.children.length || 0
+//     const filho = itens[i]?.children[opcoes-1] as HTMLDivElement;
+//     filho.style.display = filho.style.display === 'none' ? 'flex':'none'
+//     botao.src = botao.src === urlCompleta + '/public/circle-plus.svg' ?
+//     urlCompleta + '/public/circle-minus.svg':
+//     urlCompleta + '/public/circle-plus.svg';
+// }
+let filhos:HTMLDivElement[] = []
 for(let i:number = 0; i<itens.length; i++){
     shos[i].addEventListener('click', () =>{
     const botao = shos[i] as HTMLImageElement;
@@ -33,7 +34,8 @@ for(let i:number = 0; i<itens.length; i++){
     // console.log(botao.classList)
     // console.log(botao.src)
     // console.log(urlCompleta)
-    })    
+    filhos.push(filho)
+    })
 }
 menu?.addEventListener('click', ()=>{
     // ul.style.display = ul.style.display === 'none' ? 'flex':'none'
@@ -45,4 +47,18 @@ menu?.addEventListener('click', ()=>{
     }, 150)
     ul.classList.toggle('hide')
     ifro.style.display = ifro.style.display === 'flex' ? 'none':'flex'
+})
+window.addEventListener('resize', () =>{
+    if(window.innerWidth >= 768){
+        for(const filho of filhos){
+            filho.style.display = 'flex'
+        }
+        if(menu.src === urlCompleta + '/public/x.svg'){
+            menu.click()
+        }
+        ifro.style.display = 'flex'
+    } else {
+        ifro.style.display = 'none'
+        
+    }
 })
